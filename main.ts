@@ -1,8 +1,5 @@
 import * as dejs from "https://deno.land/x/dejs@0.10.3/mod.ts";
-import {
-  dirname,
-  fromFileUrl,
-} from "https://deno.land/std@0.203.0/path/mod.ts";
+import { dirname } from "https://deno.land/std@0.203.0/path/mod.ts";
 
 const port = parseInt(Deno.env.get("YT_PORT") || "") || 3999;
 
@@ -26,7 +23,7 @@ Deno.serve({ port }, async (req: Request) => {
     }
 
     const response = await dejs.renderFileToString(
-      `${dirname(fromFileUrl(import.meta.url))}/public/index.ejs`,
+      `${dirname(Deno.execPath())}/public/index.ejs`,
       { src },
     );
 
@@ -35,7 +32,8 @@ Deno.serve({ port }, async (req: Request) => {
         "Content-Type": "text/html",
       },
     });
-  } catch (_error) {
+  } catch (error) {
+    console.log(error);
     return new Response("Internal server error", { status: 500 });
   }
 });
