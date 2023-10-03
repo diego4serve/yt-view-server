@@ -1,4 +1,4 @@
-# YT View Deno
+# YT View Server
 A small Deno web server, companion to https://github.com/diego4serve/yt-view, allowing you to view YouTube videos on your localhost. This server dynamically generates HTML containing your desired video or playlist as embedded content.
 
 ## Usage
