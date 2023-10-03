@@ -1,0 +1,6 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-net='0.0.0.0,deno.land' --allow-read --allow-env='YT_PORT' --watch main.ts",
+    "start": "deno run --allow-net='0.0.0.0,deno.land' --allow-read --allow-env='YT_PORT' main.ts"
+  }
+}
